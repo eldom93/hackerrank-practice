@@ -8,24 +8,29 @@ class TeamList extends Component {
         this.teams = [];
         this.teams.push({
             name: 'Team1',
+            timestamp:new Date(),
             channels: [{
               name: 'Channel1',
-              index: 1
+              index: 1,
+              date: new Date()
             },
             {
               name: 'Channel2',
-              index: 2
+              index: 2,
+              date: new Date()
             }]
         });
         this.teams.push({
             name: 'Team2',
             channels: [{
               name: 'Channel1',
-              index: 1
+              index: 1,
+              date: new Date()
             },
             {
               name: 'Channel2',
-              index: 2
+              index: 2,
+              date: new Date()
             }]
         });
         this.state = {

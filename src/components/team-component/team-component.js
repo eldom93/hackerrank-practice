@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./team-component.css";
 import TeamList from "../team-list/team-list";
 var arry = [];
+var originalArr= [];
+originalArr.push(arry.sort());
+
 class TeamComponent extends Component {
   constructor(props) {
     super(props);
@@ -14,9 +17,9 @@ class TeamComponent extends Component {
     this.team = this.props.team;
     this.teamIndex = this.props.teamIndex;
   }
-
-  componentDidMount() {}
-
+  componentDidMount() {
+      console.log(originalArr[2]);
+  }
   formValidation(input) {
     if (input === "" || isNaN(input) !== true) {
       this.setState({
@@ -30,8 +33,6 @@ class TeamComponent extends Component {
   }
 
   removeChannel(name, index) {
-    //console.log(this.team.channels);
-
     this.setState({
       teams: this.team.channels.splice(this.team.channels[index], 1),
     });
@@ -44,6 +45,7 @@ class TeamComponent extends Component {
       this.state.channelInput
     );
     console.log("this.team", this.team.name.valueOf("Team1"), arry.sort());
+    originalArr = arry.sort();
     this.setState({
       teams: this.team.channels.push({
         name: this.state.channelInput,
@@ -53,14 +55,12 @@ class TeamComponent extends Component {
     arry.sort();
     console.log(this.createTeamChannelList());
   }
-
   sort(e) {
     var items = arry;
     this.setState({
       sorted: items,
       counter: this.state.counter+=1
     });
-console.log(this.state.counter);
     switch(this.state.counter){
         case 1:
             items.sort(function (a, b) {
@@ -75,11 +75,9 @@ console.log(this.state.counter);
           console.log(items);
           return items;
         case 3: 
-            items.sort(function (a, b) {
-                return a.localeCompare(b);
-            });
-            console.log(items);
-            return items;
+           originalArr = originalArr[2].channels.map(function(channel){return channel.name});
+            console.log(originalArr);
+            return originalArr;
         case 4:
             this.state.counter = 1;
             return this.state.counter;
@@ -103,7 +101,6 @@ console.log(this.state.counter);
       });
     }
     arry.sort();
-    console.log(arry);
   }
   render() {
     return (
@@ -139,10 +136,8 @@ console.log(this.state.counter);
             {this.team.channels &&
               this.team.channels.map((channel, idx) => (
                 <li className="channel-name" key={channel.index}>
-                  <span channel={channel}>
-                    {this.state.sorted.length > 0
-                      ? this.state.sorted[idx]
-                      : channel.name}
+                  <span className="channel-name" channel={channel}>
+                    {this.state.counter === 3 ? originalArr[idx] : this.state.counter !== 3 & this.state.sorted.length > 0 ? this.state.sorted[idx] : channel.name}
                   </span>
                   <button
                     id={idx}
