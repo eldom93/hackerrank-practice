@@ -30,7 +30,8 @@ class TeamList extends Component {
         });
         this.state = {
             teams: this.teams,
-            input: ""
+            input: "",
+            disabled:true,
         };
     }
 
@@ -38,8 +39,17 @@ class TeamList extends Component {
         
     }
 
-    formValidation() {
-        
+    formValidation(input) {
+        if(input === "" || isNaN(input) !== true){
+            this.setState({
+                disabled: true
+            })
+        }
+        else{
+            this.setState({
+                disabled: false
+            }) 
+        }
     }
 
     addTeam(event) {
@@ -52,6 +62,7 @@ class TeamList extends Component {
         })
     }
     saveInput(e){
+        this.formValidation(e.target.value);
         this.setState({
             input: e.target.value
         })
@@ -71,7 +82,10 @@ class TeamList extends Component {
                 <div className="add-team">
                     <b>Add Team</b>
                     <input onChange={(e)=> this.saveInput(e)} placeholder="Team name"/>
-                    <button onClick={(event)=> this.addTeam(event)}>&#8853;</button>
+                    {this.state.disabled ? (<button disabled>&#8853;</button>) : (
+                        <button  onClick={(event)=> this.addTeam(event)}>&#8853;</button>
+                    )}
+                    
                 </div>
             </div>
         );
