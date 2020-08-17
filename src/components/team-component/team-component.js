@@ -29,7 +29,7 @@ class TeamComponent extends Component {
     }
 
     removeChannel(index) {
-        
+        console.log(index.target.id);
     }
 
     addChannel() {
@@ -67,7 +67,7 @@ class TeamComponent extends Component {
                     { this.team.channels && this.team.channels.map((channel, idx) => (
                         <li className="channel-name" key={channel.index}>
                             <span>{channel.name}</span>
-                            <button>&#8854;</button>
+                            <button id={idx} onClick={(index)=> this.removeChannel(index)}>&#8854;</button>
                         </li>
                     ))}
                 </ul>
