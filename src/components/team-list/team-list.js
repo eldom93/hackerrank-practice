@@ -29,7 +29,8 @@ class TeamList extends Component {
             }]
         });
         this.state = {
-            teams: this.teams
+            teams: this.teams,
+            input: ""
         };
     }
 
@@ -42,16 +43,26 @@ class TeamList extends Component {
     }
 
     addTeam(event) {
-    
+    console.log('add team method called',this.state.input)
+        this.setState({
+            teams:   this.teams.push({
+                name: this.state.input,
+                channels: []
+            })
+        })
     }
-
+    saveInput(e){
+        this.setState({
+            input: e.target.value
+        })
+    }
     render() {
         return (
             <div>
                 <div className="teams-list">
                     <ul>
                         { this.teams && this.teams.map((team, idx) => (
-                            <li key={idx}>
+                            <li key={idx}>{team.name}
                                 <TeamComponent/>
                             </li>
                         ))}
@@ -59,8 +70,8 @@ class TeamList extends Component {
                 </div>
                 <div className="add-team">
                     <b>Add Team</b>
-                    <input placeholder="Team name"/>
-                    <button>&#8853;</button>
+                    <input onChange={(e)=> this.saveInput(e)} placeholder="Team name"/>
+                    <button onClick={(event)=> this.addTeam(event)}>&#8853;</button>
                 </div>
             </div>
         );
