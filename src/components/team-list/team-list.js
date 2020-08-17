@@ -43,7 +43,7 @@ class TeamList extends Component {
     }
 
     addTeam(event) {
-    console.log('add team method called',this.state.input)
+    console.log(document.querySelectorAll('.team-name')[0]);
         this.setState({
             teams:   this.teams.push({
                 name: this.state.input,
@@ -62,8 +62,8 @@ class TeamList extends Component {
                 <div className="teams-list">
                     <ul>
                         { this.teams && this.teams.map((team, idx) => (
-                            <li key={idx}>{team.name}
-                                <TeamComponent/>
+                            <li key={idx}>
+                                <TeamComponent team={team} />
                             </li>
                         ))}
                     </ul>  
