@@ -18,7 +18,7 @@ class TeamComponent extends Component {
     this.teamIndex = this.props.teamIndex;
   }
   componentDidMount() {
-      console.log(originalArr[2]);
+      console.log(arry[2].channels);
   }
   formValidation(input) {
     if (input === "" || isNaN(input) !== true) {
@@ -77,6 +77,7 @@ class TeamComponent extends Component {
         case 3: 
            originalArr = originalArr[2].channels.map(function(channel){return channel.name});
             console.log(originalArr);
+            originalArr[0]
             return originalArr;
         case 4:
             this.state.counter = 1;
