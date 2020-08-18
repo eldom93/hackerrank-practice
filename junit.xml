@@ -1,26 +1,26 @@
-<testsuites name="jest tests" tests="14" failures="3" time="1.273">
-  <testsuite name="undefined" errors="0" failures="3" skipped="0" timestamp="2020-08-18T23:22:16" time="1.273" tests="14">
-    <testcase classname=" should create the Teams and Channels listing app which contains the teams" name=" should create the Teams and Channels listing app which contains the teams" time="0.03">
+<testsuites name="jest tests" tests="14" failures="3" time="2.457">
+  <testsuite name="undefined" errors="0" failures="3" skipped="0" timestamp="2020-08-18T23:54:29" time="2.457" tests="14">
+    <testcase classname=" should create the Teams and Channels listing app which contains the teams" name=" should create the Teams and Channels listing app which contains the teams" time="0.061">
     </testcase>
-    <testcase classname=" teams and channel list should display first team by default along with required inputs and button" name=" teams and channel list should display first team by default along with required inputs and button" time="0.009">
+    <testcase classname=" teams and channel list should display first team by default along with required inputs and button" name=" teams and channel list should display first team by default along with required inputs and button" time="0.022">
     </testcase>
-    <testcase classname=" teams and channel list should display first channel in team by default along with required buttons" name=" teams and channel list should display first channel in team by default along with required buttons" time="0.007">
+    <testcase classname=" teams and channel list should display first channel in team by default along with required buttons" name=" teams and channel list should display first channel in team by default along with required buttons" time="0.017">
     </testcase>
-    <testcase classname=" Add Team section should exist and add button should be disabled initially" name=" Add Team section should exist and add button should be disabled initially" time="0.012">
+    <testcase classname=" Add Team section should exist and add button should be disabled initially" name=" Add Team section should exist and add button should be disabled initially" time="0.021">
     </testcase>
-    <testcase classname=" Add Team button should not be enabled if data entered in input is empty or numeric" name=" Add Team button should not be enabled if data entered in input is empty or numeric" time="0.014">
+    <testcase classname=" Add Team button should not be enabled if data entered in input is empty or numeric" name=" Add Team button should not be enabled if data entered in input is empty or numeric" time="0.028">
     </testcase>
-    <testcase classname=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" name=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" time="0.029">
+    <testcase classname=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" name=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" time="0.025">
     </testcase>
-    <testcase classname=" it should display correct channels name along with remove button" name=" it should display correct channels name along with remove button" time="0.014">
+    <testcase classname=" it should display correct channels name along with remove button" name=" it should display correct channels name along with remove button" time="0.008">
     </testcase>
-    <testcase classname=" Add Channel button should exist and should be disabled initially" name=" Add Channel button should exist and should be disabled initially" time="0.007">
+    <testcase classname=" Add Channel button should exist and should be disabled initially" name=" Add Channel button should exist and should be disabled initially" time="0.01">
     </testcase>
-    <testcase classname=" Add Channel button should not be enabled if data entered in input is empty or numeric" name=" Add Channel button should not be enabled if data entered in input is empty or numeric" time="0.008">
+    <testcase classname=" Add Channel button should not be enabled if data entered in input is empty or numeric" name=" Add Channel button should not be enabled if data entered in input is empty or numeric" time="0.017">
     </testcase>
-    <testcase classname=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" name=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" time="0.013">
+    <testcase classname=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" name=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" time="0.044">
     </testcase>
-    <testcase classname=" Clicking on remove button should remove the channel from the list" name=" Clicking on remove button should remove the channel from the list" time="0.007">
+    <testcase classname=" Clicking on remove button should remove the channel from the list" name=" Clicking on remove button should remove the channel from the list" time="0.017">
       <failure>Error: expect(received).toBe(expected)
 
 Expected value to be (using ===):
@@ -35,7 +35,7 @@ Received:
     at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname=" Clicking on sort button once list the channels in ascending order of names" name=" Clicking on sort button once list the channels in ascending order of names" time="0.01">
+    <testcase classname=" Clicking on sort button once list the channels in ascending order of names" name=" Clicking on sort button once list the channels in ascending order of names" time="0.049">
       <failure>Error: expect(received).toBe(expected)
 
 Expected value to be (using ===):
@@ -50,7 +50,7 @@ Received:
     at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname=" Clicking on sort button twice list the channels in descending order of names" name=" Clicking on sort button twice list the channels in descending order of names" time="0.01">
+    <testcase classname=" Clicking on sort button twice list the channels in descending order of names" name=" Clicking on sort button twice list the channels in descending order of names" time="0.021">
       <failure>Error: expect(received).toBe(expected)
 
 Expected value to be (using ===):
@@ -65,7 +65,7 @@ Received:
     at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
-    <testcase classname=" Clicking on sort button thrice list the channels according to creation order" name=" Clicking on sort button thrice list the channels according to creation order" time="0.01">
+    <testcase classname=" Clicking on sort button thrice list the channels according to creation order" name=" Clicking on sort button thrice list the channels according to creation order" time="0.029">
     </testcase>
   </testsuite>
 </testsuites>

@@ -35,7 +35,7 @@ class TeamComponent extends Component {
     });
   }
   removeChannel(index) {
-
+    console.log(index.target);
   }
 
   addChannel(event) {
@@ -77,7 +77,7 @@ class TeamComponent extends Component {
             {this.team.channels && this.team.channels.map((channel) => (
               <li className="channel-name" key={uuidv4()}>
                 <span>{channel.name}</span>
-                <button>&#8854;</button>
+                <button id={channel.index} onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
               </li>
             
             ))}
@@ -91,37 +91,3 @@ class TeamComponent extends Component {
 }
 
 export default TeamComponent;
-
-/* this.team.valueOf("Team1").channels.push({
-        name:this.state.channelInput,
-        index:this.team.channels.length + 1,
-        date: new Date()
-      }); 
-      this.team.valueOf("Team2").channels.push({
-        name:this.state.channelName,
-        index:this.team.channels.length + 1,
-        date: new Date()
-      }); 
-
-      let channelList = document.querySelector('#channelList');
-      let newChannelNames = [];
-        newChannelNames.push(
-         [ {name: this.team.channels[this.team.channels.length - 1].name},
-          {index: this.team.channels.length},
-          {date: this.team.channels.date}]);
-      
-      let nodes = newChannelNames.map(channel => {
-          var btn = document.createElement("button");
-          var span = document.createElement("span");
-          let li = document.createElement('li');
-          li.className = "channel-name";
-          li.key = channel[1].index;
-          li.appendChild = span;
-          span.textContent = channel[0].name;
-          li.appendChild = btn;
-          btn.innerHTML = '&#8854';
-          console.log(channel[0].name,channel[1].index);
-        return li;
-      });
- 
-    channelList.append(...nodes);*/

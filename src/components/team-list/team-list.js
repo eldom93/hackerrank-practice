@@ -58,7 +58,6 @@ class TeamList extends Component {
     }
 
     addTeam(event) {
-    console.log(document.querySelectorAll('.team-name')[0]);
         this.setState({
             teams:   this.teams.push({
                 name: this.state.input,
