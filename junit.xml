@@ -1,44 +1,96 @@
-<testsuites name="jest tests" tests="14" failures="1" time="1.783">
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2020-08-17T16:33:11" time="1.783" tests="14">
-    <testcase classname=" should create the Teams and Channels listing app which contains the teams" name=" should create the Teams and Channels listing app which contains the teams" time="0.033">
+<testsuites name="jest tests" tests="14" failures="5" time="0.842">
+  <testsuite name="undefined" errors="0" failures="5" skipped="0" timestamp="2020-08-18T01:42:21" time="0.842" tests="14">
+    <testcase classname=" should create the Teams and Channels listing app which contains the teams" name=" should create the Teams and Channels listing app which contains the teams" time="0.046">
     </testcase>
-    <testcase classname=" teams and channel list should display first team by default along with required inputs and button" name=" teams and channel list should display first team by default along with required inputs and button" time="0.009">
+    <testcase classname=" teams and channel list should display first team by default along with required inputs and button" name=" teams and channel list should display first team by default along with required inputs and button" time="0.012">
     </testcase>
-    <testcase classname=" teams and channel list should display first channel in team by default along with required buttons" name=" teams and channel list should display first channel in team by default along with required buttons" time="0.008">
+    <testcase classname=" teams and channel list should display first channel in team by default along with required buttons" name=" teams and channel list should display first channel in team by default along with required buttons" time="0.02">
     </testcase>
-    <testcase classname=" Add Team section should exist and add button should be disabled initially" name=" Add Team section should exist and add button should be disabled initially" time="0.009">
+    <testcase classname=" Add Team section should exist and add button should be disabled initially" name=" Add Team section should exist and add button should be disabled initially" time="0.016">
     </testcase>
-    <testcase classname=" Add Team button should not be enabled if data entered in input is empty or numeric" name=" Add Team button should not be enabled if data entered in input is empty or numeric" time="0.013">
+    <testcase classname=" Add Team button should not be enabled if data entered in input is empty or numeric" name=" Add Team button should not be enabled if data entered in input is empty or numeric" time="0.033">
     </testcase>
-    <testcase classname=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" name=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" time="0.018">
+    <testcase classname=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" name=" Add Team button should be enabled if data entered in input is correct and clicking on button should add it to the list of teams" time="0.037">
     </testcase>
-    <testcase classname=" it should display correct channels name along with remove button" name=" it should display correct channels name along with remove button" time="0.007">
+    <testcase classname=" it should display correct channels name along with remove button" name=" it should display correct channels name along with remove button" time="0.024">
     </testcase>
-    <testcase classname=" Add Channel button should exist and should be disabled initially" name=" Add Channel button should exist and should be disabled initially" time="0.007">
+    <testcase classname=" Add Channel button should exist and should be disabled initially" name=" Add Channel button should exist and should be disabled initially" time="0.005">
     </testcase>
-    <testcase classname=" Add Channel button should not be enabled if data entered in input is empty or numeric" name=" Add Channel button should not be enabled if data entered in input is empty or numeric" time="0.012">
+    <testcase classname=" Add Channel button should not be enabled if data entered in input is empty or numeric" name=" Add Channel button should not be enabled if data entered in input is empty or numeric" time="0.013">
     </testcase>
-    <testcase classname=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" name=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" time="0.023">
-    </testcase>
-    <testcase classname=" Clicking on remove button should remove the channel from the list" name=" Clicking on remove button should remove the channel from the list" time="0.016">
-    </testcase>
-    <testcase classname=" Clicking on sort button once list the channels in ascending order of names" name=" Clicking on sort button once list the channels in ascending order of names" time="0.013">
-    </testcase>
-    <testcase classname=" Clicking on sort button twice list the channels in descending order of names" name=" Clicking on sort button twice list the channels in descending order of names" time="0.013">
-    </testcase>
-    <testcase classname=" Clicking on sort button thrice list the channels according to creation order" name=" Clicking on sort button thrice list the channels according to creation order" time="0.017">
+    <testcase classname=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" name=" Add Channel button should be enabled if data entered in input is correct and clicking on button should add the channel to the existing list" time="0.016">
       <failure>Error: expect(received).toBe(expected)
 
 Expected value to be (using ===):
-  &quot;Channel1&quot;
+  &quot;Channel3&quot;
 Received:
-  &quot;Channel0&quot;
-    at Object.&lt;anonymous&gt; (/Users/nyeraeldomiaty/Downloads/test3/0b48fc96-a360-4f34-8fd0-938d248b7335/src/App.test.js:178:37)
-    at Object.asyncFn (/Users/nyeraeldomiaty/Downloads/test3/0b48fc96-a360-4f34-8fd0-938d248b7335/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)
-    at /Users/nyeraeldomiaty/Downloads/test3/0b48fc96-a360-4f34-8fd0-938d248b7335/node_modules/jest-jasmine2/build/queueRunner.js:38:12
+  &quot;Channel1&quot;
+    at Object.&lt;anonymous&gt; (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/src/App.test.js:119:37)
+    at Object.asyncFn (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:38:12
     at new Promise (&lt;anonymous&gt;)
-    at mapper (/Users/nyeraeldomiaty/Downloads/test3/0b48fc96-a360-4f34-8fd0-938d248b7335/node_modules/jest-jasmine2/build/queueRunner.js:31:21)
-    at /Users/nyeraeldomiaty/Downloads/test3/0b48fc96-a360-4f34-8fd0-938d248b7335/node_modules/p-map/index.js:46:16
+    at mapper (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:31:21)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname=" Clicking on remove button should remove the channel from the list" name=" Clicking on remove button should remove the channel from the list" time="0.014">
+      <failure>Error: expect(received).toBe(expected)
+
+Expected value to be (using ===):
+  3
+Received:
+  4
+    at Object.&lt;anonymous&gt; (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/src/App.test.js:126:31)
+    at Object.asyncFn (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:38:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:31:21)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname=" Clicking on sort button once list the channels in ascending order of names" name=" Clicking on sort button once list the channels in ascending order of names" time="0.014">
+      <failure>Error: expect(received).toBe(expected)
+
+Expected value to be (using ===):
+  &quot;Channel0&quot;
+Received:
+  &quot;Channel1&quot;
+    at Object.&lt;anonymous&gt; (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/src/App.test.js:143:37)
+    at Object.asyncFn (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:38:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:31:21)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname=" Clicking on sort button twice list the channels in descending order of names" name=" Clicking on sort button twice list the channels in descending order of names" time="0.012">
+      <failure>Error: expect(received).toBe(expected)
+
+Expected value to be (using ===):
+  &quot;Channel2&quot;
+Received:
+  &quot;Channel1&quot;
+    at Object.&lt;anonymous&gt; (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/src/App.test.js:160:37)
+    at Object.asyncFn (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:38:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:31:21)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
+    </testcase>
+    <testcase classname=" Clicking on sort button thrice list the channels according to creation order" name=" Clicking on sort button thrice list the channels according to creation order" time="0.013">
+      <failure>Error: expect(received).toBe(expected)
+
+Expected value to be (using ===):
+  &quot;Channel0&quot;
+Received:
+  &quot;Channel1&quot;
+    at Object.&lt;anonymous&gt; (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/src/App.test.js:180:37)
+    at Object.asyncFn (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/jasmine-async.js:68:30)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:38:12
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/jest-jasmine2/build/queueRunner.js:31:21)
+    at /Users/nyeraeldomiaty/Documents/GitHub/mailapp/hackerrank-practice/node_modules/p-map/index.js:46:16
     at processTicksAndRejections (internal/process/task_queues.js:97:5)</failure>
     </testcase>
   </testsuite>

@@ -1,155 +1,107 @@
-import React, { Component } from "react";
-import "./team-component.css";
-import TeamList from "../team-list/team-list";
-var arry = [];
-var originalArr= [];
-originalArr.push(arry.sort());
+import React, { Component } from 'react';
+import './team-component.css';
 
 class TeamComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      disabled: true,
-      channelInput: "",
-      sorted: [],
-      counter: 0
-    };
+      disableButton: true,
+      channelName: ''
+    }
     this.team = this.props.team;
     this.teamIndex = this.props.teamIndex;
+  
   }
+
+  
+ 
   componentDidMount() {
-      console.log(arry[2].channels);
+
   }
+
   formValidation(input) {
-    if (input === "" || isNaN(input) !== true) {
+    if (input.target.value === "" || isNaN(input.target.value) !== true) {
       this.setState({
-        disabled: true,
+        disableButton: true,
+        channelName: input.target.value
       });
     } else {
       this.setState({
-        disabled: false,
+        disableButton: false,
+        channelName: input.target.value
       });
     }
   }
 
-  removeChannel(name, index) {
-    this.setState({
-      teams: this.team.channels.splice(this.team.channels[index], 1),
-    });
+  removeChannel(index) {
+
   }
 
   addChannel(event) {
-      console.log(this.state.counter);
-    arry.push(
-      this.props.team.valueOf("Team1").channels[0].name,
-      this.state.channelInput
-    );
-    console.log("this.team", this.team.name.valueOf("Team1"), arry.sort());
-    originalArr = arry.sort();
-    this.setState({
-      teams: this.team.channels.push({
-        name: this.state.channelInput,
-        index: this.team.channels.length + 1
-      }),
-    });
-    arry.sort();
-    console.log(this.createTeamChannelList());
-  }
-  sort(e) {
-    var items = arry;
-    this.setState({
-      sorted: items,
-      counter: this.state.counter+=1
-    });
-    switch(this.state.counter){
-        case 1:
-            items.sort(function (a, b) {
-              return a.localeCompare(b);
-            });
-            console.log(items);
-            return items;
-        case 2: 
-            items.sort(function (a, b) {
-                return b.localeCompare(a);
-            });
-          console.log(items);
-          return items;
-        case 3: 
-           originalArr = originalArr[2].channels.map(function(channel){return channel.name});
-            console.log(originalArr);
-            originalArr[0]
-            return originalArr;
-        case 4:
-            this.state.counter = 1;
-            return this.state.counter;
-    }
-  }
-  saveInput(e) {
-    this.formValidation(e.target.value);
-    this.setState({
-      channelInput: e.target.value,
-    });
-  }
-  createTeamChannelList() {
-    for (
-      var i = 0;
-      i < this.props.team.valueOf("Team1").channels.length + 1;
-      i++
-    ) {
-      arry.push(this.props.team.valueOf("Team1"));
-      arry = this.props.team.valueOf("Team1").channels.map(function (channel) {
-        return channel.name;
+    console.log(event);
+      this.team.valueOf("Team1").channels.push({
+        name:this.state.channelName,
+        index:this.team.channels.length + 1,
+        date: new Date()
+      }); 
+      this.team.valueOf("Team2").channels.push({
+        name:this.state.channelName,
+        index:this.team.channels.length + 1,
+        date: new Date()
+      }); 
+      console.log(this.team.valueOf("Team1").channels);
+      let channelList = document.querySelector('#channelList');
+      let newChannelNames = [];
+        newChannelNames.push(
+         [ {name: this.team.channels[this.team.channels.length - 1].name},
+          {index: this.team.channels.length},
+          {date: this.team.channels.date}]);
+      
+      let nodes = newChannelNames.map(channel => {
+          var btn = document.createElement("button");
+          var span = document.createElement("span");
+          let li = document.createElement('li');
+          li.className = "channel-name";
+          li.key = channel[1].index;
+          li.innerHTML = span;
+          span.innerHTML = channel[0].name;
+          li.innerHTML = btn;
+          btn.innerHTML = '&#8854';
+        return li;
       });
-    }
-    arry.sort();
+    channelList.append(...nodes);
   }
+
+  sort() {
+
+  }
+
   render() {
     return (
       <div>
-        {this.team && (
+        {
+          this.team &&
           <div>
             <span className="team-name">{this.team.name}</span>
-            <button
-              id={this.team.channels}
-              onClick={(e) => this.sort(e)}
-              className="sort"
-            >
-              &#8597;
-            </button>
-
+            <button className="sort">&#8597;</button>
             <span className="add-channel">
-              <input
-                onChange={(e) => this.saveInput(e)}
-                placeholder="Channel name"
-              />
-              {this.state.disabled ? (
-                <button disabled>&#8853;</button>
-              ) : (
-                <button onClick={(event) => this.addChannel(event)}>
-                  &#8853;
-                </button>
-              )}
+              <input value={this.state.channelName} onChange={(input)=>this.formValidation(input)} placeholder="Channel name" />
+              {this.state.disableButton ? (<button disabled>&#8853;</button>)  : (<button onClick={(event) => 
+              this.addChannel(event)}>&#8853;</button>)}
             </span>
           </div>
-        )}
-        {this.team && (
-          <ul className="one">
-            {this.team.channels &&
-              this.team.channels.map((channel, idx) => (
-                <li className="channel-name" key={channel.index}>
-                  <span className="channel-name" channel={channel}>
-                    {this.state.counter === 3 ? originalArr[idx] : this.state.counter !== 3 & this.state.sorted.length > 0 ? this.state.sorted[idx] : channel.name}
-                  </span>
-                  <button
-                    id={idx}
-                    onClick={(idx) => this.removeChannel(channel.name, idx)}
-                  >
-                    &#8854;
-                  </button>
-                </li>
-              ))}
+        }
+        {
+          this.team &&
+          <ul id="channelList" className="one">
+            {this.team.channels && this.team.channels.map((channel, idx) => (
+              <li className="channel-name" key={channel.index}>
+                <span>{channel.name}</span>
+                <button>&#8854;</button>
+              </li>
+            ))}
           </ul>
-        )}
+        }
       </div>
     );
   }
