@@ -37,7 +37,7 @@ class TeamList extends Component {
             teams: this.teams,
             input: "",
             disabled:true,
-        };
+        };  
     }
 
     componentDidMount() {
@@ -73,6 +73,7 @@ class TeamList extends Component {
         })
     }
     render() {
+
         return (
             <div>
                 <div className="teams-list">
