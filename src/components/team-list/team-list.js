@@ -59,8 +59,8 @@ class TeamList extends Component {
 
     addTeam(event) {
         this.setState({
-            teams:   this.teams.push({
-                name: this.state.input,
+            teams: this.teams.push({
+                name: event.target.value,
                 channels: []
             })
         })
@@ -88,7 +88,7 @@ class TeamList extends Component {
                     <b>Add Team</b>
                     <input onChange={(e)=> this.saveInput(e)} placeholder="Team name"/>
                     {this.state.disabled ? (<button disabled>&#8853;</button>) : (
-                        <button  onClick={(event)=> this.addTeam(event)}>&#8853;</button>
+                        <button value={this.state.input} onClick={(event)=> this.addTeam(event)}>&#8853;</button>
                     )}
                     
                 </div>

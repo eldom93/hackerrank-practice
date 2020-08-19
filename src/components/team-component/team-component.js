@@ -11,6 +11,7 @@ class TeamComponent extends Component {
     }
     this.team = this.props.team;
     this.teamIndex = this.props.teamIndex;
+    this.removeChannel = this.removeChannel.bind(this);
   }
 
   componentDidMount() {
@@ -34,8 +35,12 @@ class TeamComponent extends Component {
       channelInput: e.target.value,
     });
   }
-  removeChannel(index) {
-    console.log(index.target);
+
+  removeChannel(e) {
+    this.team.channels.splice(e.target.id-1,1);
+    this.setState({
+      channelNamesAdded: this.state.channelNamesAdded.splice(e.target.id -1, 1)
+    })
   }
 
   addChannel(event) {
@@ -79,10 +84,7 @@ class TeamComponent extends Component {
                 <span>{channel.name}</span>
                 <button id={channel.index} onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
               </li>
-            
             ))}
-      
-         
           </ul>
         }
       </div>
