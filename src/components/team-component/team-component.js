@@ -16,7 +16,6 @@ class TeamComponent extends Component {
     this.team = this.props.team;
     this.teamIndex = this.props.teamIndex;
     this.removeChannel = this.removeChannel.bind(this);
-    
   }
 
   componentDidMount() {
@@ -34,6 +33,7 @@ class TeamComponent extends Component {
       });
     }
   }
+  
   saveInput(e) {
   this.formValidation(e.target.value);
     this.setState({
@@ -65,7 +65,6 @@ class TeamComponent extends Component {
   sort(e) {
     recentChannels = this.team.channels.map((channel)=>(channel.name));
     allChannels = [...recentChannels];
-    console.log(allChannels);
     if(this.state.sortClickCounter===0){
       this.setState({
         sortClickCounter:1,
@@ -73,7 +72,6 @@ class TeamComponent extends Component {
           return a.localeCompare(b);
         })
       });
- 
     } else if(this.state.sortClickCounter===1){
       this.setState({
         sortClickCounter:2,
@@ -84,7 +82,7 @@ class TeamComponent extends Component {
     }else if(this.state.sortClickCounter===2){
       this.setState({
         sortClickCounter:3,
-        channelNamesAdded: this.state.channelNamesAdded
+        channelNamesAdded: this.state.originalSortOrder
       }) 
     }
  
@@ -127,7 +125,12 @@ class TeamComponent extends Component {
                 <span>{channel}</span>
                 <button id="1800" onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
               </li>
-            )) : this.state.originalSortOrder && this.state.originalSortOrder.map((channel) => (
+            )) : this.state.sortClickCounter === 2 ? this.state.channelNamesAdded && this.state.channelNamesAdded.map((channel) => (
+              <li className="channel-name" key={uuidv4()}>
+                <span>{channel}</span>
+                <button id="1900" onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
+              </li>
+            )):  this.team.channels && this.team.channels.map((channel) => (
               <li className="channel-name" key={uuidv4()}>
                 <span>{channel.name}</span>
                 <button id={channel.index} onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
