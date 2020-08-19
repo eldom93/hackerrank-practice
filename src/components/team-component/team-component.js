@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import './team-component.css';
 import { v4 as uuidv4 } from 'uuid';
+var recentChannels = [];
+var allChannels;
 class TeamComponent extends Component {
   constructor(props){
     super(props);
     this.state = {
       disableButton: true,
       channelInput: '',
-      channelNamesAdded: []
+      channelNamesAdded: [],
+      sortClickCounter: 0,
+      originalSortOrder: []
     }
     this.team = this.props.team;
     this.teamIndex = this.props.teamIndex;
     this.removeChannel = this.removeChannel.bind(this);
+    
   }
 
   componentDidMount() {
@@ -39,7 +44,8 @@ class TeamComponent extends Component {
   removeChannel(e) {
     this.team.channels.splice(e.target.id-1,1);
     this.setState({
-      channelNamesAdded: this.state.channelNamesAdded.splice(e.target.id -1, 1)
+      channelNamesAdded: this.state.channelNamesAdded.splice(e.target.id -1, 1),
+      originalSortOrder: this.state.channelNamesAdded.splice(e.target.id -1, 1)
     })
   }
 
@@ -52,23 +58,48 @@ class TeamComponent extends Component {
      this.setState({
       channelNamesAdded: [...this.state.channelNamesAdded, this.state.channelInput],
       channelInput: '',
+      originalSortOrder: [...this.state.channelNamesAdded, this.state.channelInput]
     });
-
   }
 
-  sort() {
-
+  sort(e) {
+    recentChannels = this.team.channels.map((channel)=>(channel.name));
+    allChannels = [...recentChannels];
+    console.log(allChannels);
+    if(this.state.sortClickCounter===0){
+      this.setState({
+        sortClickCounter:1,
+        channelNamesAdded:allChannels.sort(function (a, b) {
+          return a.localeCompare(b);
+        })
+      });
+ 
+    } else if(this.state.sortClickCounter===1){
+      this.setState({
+        sortClickCounter:2,
+        channelNamesAdded: allChannels.sort(function (a, b) {
+          return b.localeCompare(a);
+        })
+      }) 
+    }else if(this.state.sortClickCounter===2){
+      this.setState({
+        sortClickCounter:3,
+        channelNamesAdded: this.state.channelNamesAdded
+      }) 
+    }
+ 
+   
   }
 
   render() {
-   
+    console.log(this.state.originalSortOrder);
     return (
       <div>
         {
           this.team &&
           <div>
             <span className="team-name">{this.team.name}</span>
-            <button className="sort">&#8597;</button>
+            <button id={this.state.sortClickCounter} className="sort" onClick={(e)=>this.sort(e)}>&#8597;</button>
             <span className="add-channel">
               <input value={this.state.channelInput} onChange={(e)=>this.saveInput(e)} placeholder="Channel name" />
               {this.state.disableButton ? (<button disabled>&#8853;</button>)  : (
@@ -79,7 +110,24 @@ class TeamComponent extends Component {
         {
           this.team &&
           <ul id="channelList" className="one">
-            {this.team.channels && this.team.channels.map((channel) => (
+            {this.state.sortClickCounter === 0 ? 
+            this.team.channels && this.team.channels.map((channel) => (
+              <li className="channel-name" key={uuidv4()}>
+                <span>{channel.name}</span>
+                <button id={channel.index} onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
+              </li>
+            )) : this.state.sortClickCounter === 1 ? 
+            this.state.channelNamesAdded && this.state.channelNamesAdded.map((channel) => (
+              <li className="channel-name" key={uuidv4()}>
+                <span>{channel}</span>
+                <button id="17000" onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
+              </li>
+            )) : this.state.sortClickCounter === 2 ? this.state.channelNamesAdded && this.state.channelNamesAdded.map((channel) => (
+              <li className="channel-name" key={uuidv4()}>
+                <span>{channel}</span>
+                <button id="1800" onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
+              </li>
+            )) : this.state.originalSortOrder && this.state.originalSortOrder.map((channel) => (
               <li className="channel-name" key={uuidv4()}>
                 <span>{channel.name}</span>
                 <button id={channel.index} onClick={(e)=>this.removeChannel(e)}>&#8854;</button>
